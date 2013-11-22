@@ -177,7 +177,7 @@ class BoostClassifier(Classifier):
 
         returns: float (between 0 and 1)
         """
-        weighted_total = sum([c.classify(obj)*w for (c, w) in self.classifiers])
+        weighted_total = sum([c.classify(obj) for c in self.base_classifiers])
         return sigmoid(weighted_total)
 
     def best_classifier(self):
